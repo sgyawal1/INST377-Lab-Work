@@ -57,7 +57,7 @@ form {
 */
 
 div {
-  border: 2px dashed rgba(0, 0, 0, 0.8);
+  border: 2px rgba(0, 0, 0, 0.8);
 }
 
 .wrapper {
@@ -103,6 +103,7 @@ div {
   font-size: 1.5rem;
   padding: 1.25rem;
   margin:0; /* removing the margin on h1 tags means the header pins to the top if we move */
+  border: 2px dashed rgba(0, 0, 0, 0.8);
 
 
   /* box-shadows are fancy */
@@ -161,12 +162,14 @@ div {
   font-weight: 600;
   position: sticky;
   bottom: 0;
+  border: 2px dashed rgba(0, 0, 0, 0.8);
 }
 
 .footer a {
   color: rgb(65, 25, 139);
   text-decoration: underline;
 }
+
 
 /*
   This is an example of a 'pseudoclass'
