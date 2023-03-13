@@ -8,12 +8,13 @@ function filterList(list, query) {
     const lowerCaseName = item.name.toLowerCase();
     const lowerCaseQuery = query.toLowerCase();
     return lowerCaseName.includes(lowerCaseQuery);
-})
+  });
 }
 
 async function mainEvent() { // the async keyword means we can make API requests
   const mainForm = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
-  const filterDataButton = document.querySelector('.filter')
+  const filterButton = document.querySelector('.filter')
+
   let currentList = [];
 
   mainForm.addEventListener('submit', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
@@ -38,7 +39,10 @@ async function mainEvent() { // the async keyword means we can make API requests
     console.table(currentList);
   });
 
-  filterDataButton.addEventListener('click', (event) => {
+
+
+
+  filterButton.addEventListener('click', (event) => {
     console.log('clicked FilterButton');
 
     const formData = new FormData(mainForm);
