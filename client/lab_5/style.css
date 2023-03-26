@@ -282,6 +282,12 @@
     /* Pick a good background colour for your hover pseudoclass */
     background-color: pink;
   }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
   
   /*
   Form Styles
