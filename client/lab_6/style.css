@@ -280,7 +280,7 @@ div.carousel {
   background-color: pink;
 }
 
-.buttons {
+.button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
