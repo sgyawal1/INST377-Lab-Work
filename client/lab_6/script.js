@@ -65,7 +65,6 @@ async function mainEvent() { // the async keyword means we can make API requests
     const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
 
     currentList = await results.json();
-
     loadAnimation.style.display = 'none';
     console.table(currentList);
   });
