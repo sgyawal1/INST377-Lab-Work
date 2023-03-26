@@ -47,7 +47,7 @@ async function mainEvent() { // the async keyword means we can make API requests
 
   let currentList = [];
 
-  loadDataButtton.addEventListener('click', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
+  loadDataButton.addEventListener('click', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
     console.log('Loading data'); // this is substituting for a "breakpoint"
     loadAnimation.style.display = 'inline-block';
 
