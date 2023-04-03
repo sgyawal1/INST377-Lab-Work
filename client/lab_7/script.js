@@ -50,11 +50,15 @@ function getRandomIntInclusive(min, max) {
       const filterButton = document.querySelector('#filter_button');
       const loadDataButton = document.querySelector('#data_load');
       const generateListButton = document.querySelector('#generate');
+      const textField = document.querySelector('#resto');
       // Add a querySelector that targets your filter button here
     
       const loadAnimation = document.querySelector('#data_load_animation');
       loadAnimation.style.display = 'none';
-  
+      generateListButton.classList.add('hidden');
+
+
+      let storedList = [];
       let currentList = []; // this is "scoped" to the main event function
       
       /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
@@ -67,9 +71,14 @@ function getRandomIntInclusive(min, max) {
         const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
     
         // This changes the response from the GET into data we can use - an "object"
-        currentList = await results.json();
+        storedList = await results.json();
+        if (storedList.length > 0) {
+            generateListButton.classList.remove('hidden');
+        }
+
+
         loadAnimation.style.display = 'none';
-        console.table(currentList); 
+        console.table(storedList); 
       });
     
     
@@ -89,9 +98,17 @@ function getRandomIntInclusive(min, max) {
   
       generateListButton.addEventListener('click', (event) => {
         console.log('generate new list');
-        const restaurantsList = cutRestaurantList(currentList);
-        injectHTML(restaurantsList);
-      });
+        currentList = cutRestaurantList(storedList);
+        console.log(currentList);
+        injectHTML(currentList);
+      })
+
+      textField.addEventListener('input', (event) => {
+        console.log('input', event.target.value);
+        const newList = filterList(currentList, event.target.value);
+        console.log(newList);
+        injectHTML(newList);
+      }) 
     }
     
     document.addEventListener('DOMContentLoaded', async () => mainEvent()); // the async keyword means we can make API requests
